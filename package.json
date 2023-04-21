@@ -1,0 +1,26 @@
+{
+  "name": "web-extension-for-image-compression-and-conversion-to-webp",
+  "version": "1.0.0",
+  "description": "Images compression",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run build && web-ext run --source-dir=./dist",
+    "lint": "eslint src/**/*.ts",
+    "build": "mkdir -p dist && cp manifest.json dist/ && esbuild --bundle src/popup.ts --outfile=dist/popup.js",
+    "build-prod": "esbuild --bundle src/popup.ts --outfile=dist/popup.js --minify"
+  },
+  "keywords": [],
+  "author": "Rokas Norvilis",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "esbuild": "^0.17.17",
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.4",
+    "web-ext": "^7.6.1"
+  },
+  "dependencies": {
+    "webextension-polyfill-ts": "^0.26.0"
+  }
+}
